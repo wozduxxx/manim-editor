@@ -28,7 +28,7 @@ import type { SceneObject, AnimationStep } from '../../types/scene';
 import {
   Scene, Circle, Square,
   Create, FadeIn, FadeOut, Write,
-  GrowFromCenter, Transform, Indicate,
+  GrowFromCenter, Transform, Indicate, Shift,
   BLACK,
 } from 'manim-web';
 
@@ -250,12 +250,14 @@ async function runStep(
           if (mob.animate?.moveTo) {
             await scene.play(mob.animate.moveTo(pos) as any);
           } else {
-            mob.moveTo?.(pos);
-            await scene.wait(dur);
+            // mob.moveTo?.(pos);
+            // await scene.wait(dur);
+            await scene.play(new Shift(mob, {direction: pos}));
           }
         } catch {
-          mob.moveTo?.(pos);
-          await scene.wait(dur);
+          // mob.moveTo?.(pos);
+          // await scene.wait(dur);
+          await scene.play(new Shift(mob, {direction: pos}));
         }
         break;
       }

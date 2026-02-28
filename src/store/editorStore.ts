@@ -12,6 +12,7 @@ const initialState: EditorState = {
   selectedStepId: null,
   isPlaying: false,
   currentStep: -1,
+  scrubTime: null as number | null,
 };
 
 const editorSlice = createSlice({
@@ -114,6 +115,9 @@ const editorSlice = createSlice({
     setIsPlaying: (state, action: PayloadAction<boolean>) => { state.isPlaying = action.payload; },
     setCurrentStep: (state, action: PayloadAction<number>) => { state.currentStep = action.payload; },
     stopPlayback: (state) => { state.isPlaying = false; state.currentStep = -1; },
+    setScrubTime: (state, action: PayloadAction<number | null>) => {
+      state.scrubTime = action.payload;
+    },
   },
 });
 
@@ -121,7 +125,7 @@ export const {
   addObject, updateObjectProps, updateObjectLabel, toggleVisibility,
   selectObject, deleteObject, duplicateObject,
   addAnimationStep, updateAnimationStep, deleteAnimationStep, selectStep,
-  setIsPlaying, setCurrentStep, stopPlayback,
+  setIsPlaying, setCurrentStep, stopPlayback, setScrubTime
 } = editorSlice.actions;
 
 export const store = configureStore({ reducer: { editor: editorSlice.reducer } });

@@ -5,7 +5,7 @@ import {
   deleteAnimationStep,
   selectStep,
   updateAnimationStep,
-  resetPlayback,
+  // resetPlayback,
 } from '../../store/editorStore';
 import { downloadPython } from '../../utils/pythonExporter';
 import { useSceneController } from '../../controllers/SceneController';
@@ -110,7 +110,7 @@ export default function TimelinePanel() {
 
   const handleReset = () => {
     controller.stop();
-    dispatch(resetPlayback());
+    // dispatch(resetPlayback());
   };
 
   // ── Ruler ticks ───────────────────────────────────────────────────────────

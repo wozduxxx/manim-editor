@@ -65,7 +65,7 @@ function Toolbar({ canvasRef }: { canvasRef: React.RefObject<CanvasHandle | null
         disabled={sorted.length === 0}
         style={{
           display: 'flex', alignItems: 'center', gap: 6, padding: '6px 14px',
-          borderRadius: 7, border: 'none', cursor: sorted.length === 0 ? 'not-allowed' : 'pointer',
+          borderRadius: 7, cursor: sorted.length === 0 ? 'not-allowed' : 'pointer',
           fontSize: 11, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '0.06em',
           background: isPlaying ? 'rgba(252,98,85,0.2)' : 'rgba(131,193,103,0.15)',
           color: isPlaying ? '#FC6255' : (sorted.length === 0 ? '#2a3a2a' : '#83C167'),

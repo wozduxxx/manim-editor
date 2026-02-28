@@ -44,4 +44,5 @@ export interface EditorState {
   selectedStepId: string | null;
   isPlaying: boolean;
   currentStep: number;
+  scrubTime: number | null;
 }
