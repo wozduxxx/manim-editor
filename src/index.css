@@ -2,7 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
   margin: 0;
-  background: #030712;
+  background: #0d0d1a;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #2e2e4e; }
+
+/* Input resets */
+input[type='range'] { cursor: pointer; accent-color: #58C4DD; }
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type='color'] { -webkit-appearance: none; padding: 0; border: none; cursor: pointer; border-radius: 3px; }
+input[type='color']::-webkit-color-swatch-wrapper { padding: 0; }
+input[type='color']::-webkit-color-swatch { border: 1px solid #2a2a4a; border-radius: 3px; }
+::selection { background: rgba(88,196,221,0.25); }
+
+/* Layer row hover */
+.layer-row:hover .row-actions { opacity: 1 !important; }
+
+/* Animations */
+@keyframes mw-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.2); }
+}
+
+/* Leva overrides — make it flush with no extra chrome */
+[class*="leva-c"] { font-family: 'JetBrains Mono', monospace !important; }
