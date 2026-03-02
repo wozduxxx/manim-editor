@@ -114,9 +114,13 @@ const editorSlice = createSlice({
 
     setIsPlaying: (state, action: PayloadAction<boolean>) => { state.isPlaying = action.payload; },
     setCurrentStep: (state, action: PayloadAction<number>) => { state.currentStep = action.payload; },
-    stopPlayback: (state) => { state.isPlaying = false; state.currentStep = -1; },
-    setScrubTime: (state, action: PayloadAction<number | null>) => {
+    setScrubTime: (state, action: PayloadAction<number | null>) => { // ← ДОБАВЛЕНО
       state.scrubTime = action.payload;
+    },
+    stopPlayback: (state) => {
+      state.isPlaying = false;
+      state.currentStep = -1;
+      state.scrubTime = null; // ← Сбрасываем scrubTime при остановке
     },
   },
 });

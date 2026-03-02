@@ -5,7 +5,7 @@ import ManimCanvas, { type CanvasHandle } from './components/canvas/ManimCanvas'
 import PropertiesPanel from './components/panel/PropertiesPanel';
 import ObjectsPanel from './components/panel/ObjectsPanel';
 import TimelinePanel from './components/timeline/TimelinePanel';
-import { downloadPython } from './utils/pythonExporter';
+import { downloadPythonScript } from './utils/pythonExporter';
 import type { RootState } from './store/editorStore';
 
 // ─── Toolbar ──────────────────────────────────────────────────────────────────
@@ -77,7 +77,7 @@ function Toolbar({ canvasRef }: { canvasRef: React.RefObject<CanvasHandle | null
       </button>
 
       <button
-        onClick={() => downloadPython(objects, steps)}
+        onClick={() => downloadPythonScript(objects, steps)}
         style={{
           display: 'flex', alignItems: 'center', gap: 6, padding: '6px 14px',
           borderRadius: 7, fontSize: 11, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '0.06em',
